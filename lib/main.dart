@@ -5,7 +5,21 @@ import 'package:audioplayers/audioplayers.dart';
 void main() => runApp(XylophoneApp());
 void playSound(int Soundnumber) {
   final player = AudioPlayer();
-  player.play('note$Soundnumber.wav');
+  player.play(AssetSource('note$Soundnumber.wav'));
+}
+
+Expanded buildkey({required Color color, required int Soundnumber}) {
+  return Expanded(
+    child: TextButton(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.all<Color>(color),
+      ),
+      onPressed: () {
+        playSound(Soundnumber);
+      },
+      child: Text('$Soundnumber'),
+    ),
+  );
 }
 
 class XylophoneApp extends StatelessWidget {
@@ -19,90 +33,13 @@ class XylophoneApp extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Expanded(
-                  child: TextButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStateProperty.all<Color>(Colors.red),
-                    ),
-                    onPressed: () {
-                      playSound(1);
-                    },
-                    child: Text('1'),
-                  ),
-                ),
-                Expanded(
-                  child: TextButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStateProperty.all<Color>(Colors.blue),
-                    ),
-                    onPressed: () {
-                      playSound(2);
-                    },
-                    child: Text('2'),
-                  ),
-                ),
-                Expanded(
-                  child: TextButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStateProperty.all<Color>(Colors.green),
-                    ),
-                    onPressed: () {
-                      playSound(3);
-                    },
-                    child: Text('3'),
-                  ),
-                ),
-                Expanded(
-                  child: TextButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStateProperty.all<Color>(Colors.yellow),
-                    ),
-                    onPressed: () {
-                      playSound(4);
-                    },
-                    child: Text('4'),
-                  ),
-                ),
-                Expanded(
-                  child: TextButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStateProperty.all<Color>(Colors.grey),
-                    ),
-                    onPressed: () async {
-                      playSound(5);
-                    },
-                    child: Text('5'),
-                  ),
-                ),
-                Expanded(
-                  child: TextButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStateProperty.all<Color>(Colors.purple),
-                    ),
-                    onPressed: () {
-                      playSound(6);
-                    },
-                    child: Text('6'),
-                  ),
-                ),
-                Expanded(
-                  child: TextButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStateProperty.all<Color>(Colors.orange),
-                    ),
-                    onPressed: () async {
-                      playSound(7);
-                    },
-                    child: Text('7'),
-                  ),
-                ),
+                buildkey(color: Colors.red, Soundnumber: 1),
+                buildkey(color: Colors.blue, Soundnumber: 2),
+                buildkey(color: Colors.green, Soundnumber: 3),
+                buildkey(color: Colors.yellow, Soundnumber: 4),
+                buildkey(color: Colors.grey, Soundnumber: 5),
+                buildkey(color: Colors.purple, Soundnumber: 6),
+                buildkey(color: Colors.orange, Soundnumber: 7),
               ],
             ),
           ),
