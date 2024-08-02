@@ -3,98 +3,105 @@ import 'package:english_words/english_words.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 void main() => runApp(XylophoneApp());
+void playSound(int Soundnumber) {
+  final player = AudioPlayer();
+  player.play('note$Soundnumber.wav');
+}
 
 class XylophoneApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all<Color>(Colors.red),
+                Expanded(
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          WidgetStateProperty.all<Color>(Colors.red),
+                    ),
+                    onPressed: () {
+                      playSound(1);
+                    },
+                    child: Text('1'),
                   ),
-                  onPressed: () async {
-                    final player = AudioPlayer();
-                    await player.setSourceAsset('note1.wav');
-                    player.play(AssetSource('note1.wav'));
-                  },
-                  child: Text('1'),
                 ),
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(Colors.blue),
+                Expanded(
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          WidgetStateProperty.all<Color>(Colors.blue),
+                    ),
+                    onPressed: () {
+                      playSound(2);
+                    },
+                    child: Text('2'),
                   ),
-                  onPressed: () async {
-                    final player = AudioPlayer();
-                    await player.setSourceAsset('note2.wav');
-                    player.play(AssetSource('note2.wav'));
-                  },
-                  child: Text('2'),
                 ),
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(Colors.green),
+                Expanded(
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          WidgetStateProperty.all<Color>(Colors.green),
+                    ),
+                    onPressed: () {
+                      playSound(3);
+                    },
+                    child: Text('3'),
                   ),
-                  onPressed: () async {
-                    final player = AudioPlayer();
-                    await player.setSourceAsset('note3.wav');
-                    player.play(AssetSource('note3.wav'));
-                  },
-                  child: Text('3'),
                 ),
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(Colors.yellow),
+                Expanded(
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          WidgetStateProperty.all<Color>(Colors.yellow),
+                    ),
+                    onPressed: () {
+                      playSound(4);
+                    },
+                    child: Text('4'),
                   ),
-                  onPressed: () async {
-                    final player = AudioPlayer();
-                    await player.setSourceAsset('note4.wav');
-                    player.play(AssetSource('note4.wav'));
-                  },
-                  child: Text('4'),
                 ),
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(Colors.black),
+                Expanded(
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          WidgetStateProperty.all<Color>(Colors.grey),
+                    ),
+                    onPressed: () async {
+                      playSound(5);
+                    },
+                    child: Text('5'),
                   ),
-                  onPressed: () async {
-                    final player = AudioPlayer();
-                    await player.setSourceAsset('note5.wav');
-                    player.play(AssetSource('note5.wav'));
-                  },
-                  child: Text('5'),
                 ),
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(Colors.purple),
+                Expanded(
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          WidgetStateProperty.all<Color>(Colors.purple),
+                    ),
+                    onPressed: () {
+                      playSound(6);
+                    },
+                    child: Text('6'),
                   ),
-                  onPressed: () async {
-                    final player = AudioPlayer();
-                    await player.setSourceAsset('note6.wav');
-                    player.play(AssetSource('note6.wav'));
-                  },
-                  child: Text('6'),
                 ),
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(Colors.orange),
+                Expanded(
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          WidgetStateProperty.all<Color>(Colors.orange),
+                    ),
+                    onPressed: () async {
+                      playSound(7);
+                    },
+                    child: Text('7'),
                   ),
-                  onPressed: () async {
-                    final player = AudioPlayer();
-                    await player.setSourceAsset('note7.wav');
-                    player.play(AssetSource('note7.wav'));
-                  },
-                  child: Text('7'),
                 ),
               ],
             ),
